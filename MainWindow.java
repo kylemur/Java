@@ -3,7 +3,7 @@
 import javax.swing.*;
 import java.awt.FlowLayout;
 
-public class Main {
+public class MainWindow {
     public static void main(String[] args) {
 
         JFrame window = new JFrame("Main Window");
