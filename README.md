@@ -1,10 +1,12 @@
 # Overview
 
-{Important! Do not say in this section that this is college assignment. Talk about what you are trying to accomplish as a software engineer to further your learning.}
+{Talk about what you are trying to accomplish as a software engineer to further your learning.}
+I have experience with C, C++, and C#, so I wanted to learn Java because it is in the same family.
 
 {Provide a description of the software that you wrote to demonstrate the Java language.}
 
 {Describe your purpose for writing this software.}
+I made a paint program because I do not have very much experience with GUIs and I want to broaden my programming knowledge. My current GUI experience is from making a couple programs with Python that use a GUI and other programs with HTML, CSS, and JavaScript (basically making a GUI).
 
 {Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
