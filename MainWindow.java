@@ -11,6 +11,7 @@ public class MainWindow extends JFrame implements ActionListener {
     JMenuItem rectangleTool;
     JMenuItem ovalTool;
     JMenuItem triangleTool;
+    JMenuItem tubeTool;
     JMenuItem eraserTool;
     JMenuItem redColor;
     JMenuItem greenColor;
@@ -56,6 +57,10 @@ public class MainWindow extends JFrame implements ActionListener {
         triangleTool = new JMenuItem("Triangle Tool");
         toolsMenu.add(triangleTool);
         triangleTool.addActionListener(this);
+
+        tubeTool = new JMenuItem("Tube Tool");
+        toolsMenu.add(tubeTool);
+        tubeTool.addActionListener(this);
 
         eraserTool = new JMenuItem("Eraser");
         toolsMenu.add(eraserTool);
@@ -130,6 +135,8 @@ public class MainWindow extends JFrame implements ActionListener {
             drawingPanel.setTool("Triangle");
         } else if (e.getSource() == eraserTool) {
             drawingPanel.setTool("Eraser");
+        } else if (e.getSource() == eraserTool) {
+            drawingPanel.setTool("Tube");
         } else if (e.getSource() == redColor) {
             drawingPanel.setColor(Color.RED);
         } else if (e.getSource() == greenColor) {
@@ -182,17 +189,6 @@ class DrawingPanel extends JPanel {
             } 
 
             public void mouseReleased(MouseEvent e) { 
-                // int x = e.getX(); 
-                // int y = e.getY(); 
-                // if (tool.equals("Rectangle")) { 
-                //     g2d.drawRect(Math.min(prevX, x), Math.min(prevY, y), Math.abs(prevX - x), Math.abs(prevY - y)); 
-                // } else if (tool.equals("Oval")) { 
-                //     g2d.drawOval(prevX, prevY, x - prevX, y - prevY); 
-                // } else if (tool.equals("Triangle")) { 
-                //     int[] xPoints = { prevX, (prevX + x) / 2, x }; 
-                //     int[] yPoints = { prevY, y, prevY }; 
-                //     g2d.drawPolygon(xPoints, yPoints, 3); 
-                // } 
                 dragging = false; 
                 g2d.dispose(); 
             } 
@@ -217,7 +213,9 @@ class DrawingPanel extends JPanel {
                         int[] xPoints = { prevX, (prevX + x) / 2, x }; 
                         int[] yPoints = { prevY, y, prevY }; 
                         g2d.drawPolygon(xPoints, yPoints, 3); 
-                    } 
+                    } else if (tool.equals("Tube")) { 
+                        g2d.drawOval(prevX, prevY, Math.abs(x + prevX), Math.abs(y + prevY)); 
+                    }
                     prevX = x; 
                     prevY = y; 
                 } 
