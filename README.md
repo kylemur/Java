@@ -1,34 +1,31 @@
 # Overview
 
-{Talk about what you are trying to accomplish as a software engineer to further your learning.}
 I have experience with C, C++, and C#, so I wanted to learn Java because it is in the same family.
 
-{Provide a description of the software that you wrote to demonstrate the Java language.}
+This Java Paint program is a GUI that allows the user to draw lines, shapes, tubes, use different colors, use an eraser, and change the background color. 
+All the code is part of one base class (MainWindow) and a derived class (DrawingPanel).
 
-{Describe your purpose for writing this software.}
 I made a paint program because I do not have very much experience with GUIs and I want to broaden my programming knowledge. My current GUI experience is from making a couple programs with Python that use a GUI and other programs with HTML, CSS, and JavaScript (basically making a GUI).
-
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running and a walkthrough of the code. Focus should be on sharing what you learned about the language syntax.}
 
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+I downloaded Java and integrated it into VS Code by adding the reccomended extensions. Without the extensions, I probably would have used Eclipse.
+I went through the W3Schools tutorial and a YouTube tutorial by Telusko.
+I also used Copilot to explain syntax errors and answer questions like, "What is TreeSet?"
 
-{Describe the programming language that you used and any libraries.}
+Imported some of the Java Foundation Classes (JFC), including javax.swing. 
+Imported from Abstract Window Toolkit (java.awt) for event handling like mouse clicks, drags, and releases.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-
-- [YouTube](https://www.youtube.com/watch?v=LUrPIs3EwrQ&list=PLsyeobzWxl7pVZdyDXj0arOdTzo4MYekh&index=4)
-- [Web Site Name](http://url.link.goes.here)
+- [W3Schools](https://www.w3schools.com/java)
+- [Telusko YouTube Channel](https://www.youtube.com/watch?v=dPaUazOJOBc&list=PLsyeobzWxl7pVZdyDXj0arOdTzo4MYekh&index=1)
 
 # Future Work
 
-{Make a list of things that you need to fix, improve, and add in the future.}
-
-- Item 1
-- Item 2
-- Item 3
+- Make the shape tools create just one shape from the mouse click coordinates to the mouse release.
+- Stop the drop-down menu from erasing.
+- Create Save and Load features, use TreeSet to organize the file name alphabetically.
+- Add a Fill feature that will color everything inside a shape.

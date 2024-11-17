@@ -135,7 +135,7 @@ public class MainWindow extends JFrame implements ActionListener {
             drawingPanel.setTool("Triangle");
         } else if (e.getSource() == eraserTool) {
             drawingPanel.setTool("Eraser");
-        } else if (e.getSource() == eraserTool) {
+        } else if (e.getSource() == tubeTool) {
             drawingPanel.setTool("Tube");
         } else if (e.getSource() == redColor) {
             drawingPanel.setColor(Color.RED);
