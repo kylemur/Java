@@ -7,7 +7,7 @@ All the code is part of one base class (MainWindow) and a derived class (Drawing
 
 I made a paint program because I do not have very much experience with GUIs and I want to broaden my programming knowledge. My current GUI experience is from making a couple programs with Python that use a GUI and other programs with HTML, CSS, and JavaScript (basically making a GUI).
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/z2GYqnaWkaM)
 
 # Development Environment
 
