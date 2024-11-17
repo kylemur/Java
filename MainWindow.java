@@ -3,33 +3,39 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class MainWindow extends JFrame implements ActionListener {
+    // GUI menu setup
     JMenuBar menuBar;
     JMenu toolsMenu;
     JMenu colorsMenu;
     JMenu backgroundColor;
+
     JMenuItem brushTool;
     JMenuItem rectangleTool;
     JMenuItem ovalTool;
     JMenuItem triangleTool;
     JMenuItem tubeTool;
     JMenuItem eraserTool;
+
     JMenuItem redColor;
     JMenuItem greenColor;
     JMenuItem blueColor;
     JMenuItem yellowColor;
     JMenuItem blackColor;
     JMenuItem whiteColor;
+
     JMenuItem blackBG;
     JMenuItem blueBG;
     JMenuItem greenBG;
     JMenuItem redBG;
     JMenuItem whiteBG;
     JMenuItem yellowBG;
-    DrawingPanel drawingPanel;
 
-    public MainWindow() {
-        super("Paint");
+    DrawingPanel drawingPanel; // drawing functionality setup
 
+    public MainWindow() { // constructor for MainWindow class
+        super("Paint"); // adds title to the JFrame GUI
+
+        // Menu
         menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
@@ -42,6 +48,7 @@ public class MainWindow extends JFrame implements ActionListener {
         backgroundColor = new JMenu("Background Color");
         menuBar.add(backgroundColor);
 
+        // Tools
         brushTool = new JMenuItem("Brush");
         toolsMenu.add(brushTool);
         brushTool.addActionListener(this);
@@ -66,6 +73,7 @@ public class MainWindow extends JFrame implements ActionListener {
         toolsMenu.add(eraserTool);
         eraserTool.addActionListener(this);
 
+        // Colors
         redColor = new JMenuItem("Red");
         colorsMenu.add(redColor);
         redColor.addActionListener(this);
@@ -90,6 +98,7 @@ public class MainWindow extends JFrame implements ActionListener {
         colorsMenu.add(whiteColor);
         whiteColor.addActionListener(this);
 
+        // Background Colors
         blackBG = new JMenuItem("Black");
         backgroundColor.add(blackBG);
         blackBG.addActionListener(this);
@@ -114,9 +123,11 @@ public class MainWindow extends JFrame implements ActionListener {
         backgroundColor.add(yellowBG);
         yellowBG.addActionListener(this);
 
+        // Drawing Panel
         drawingPanel = new DrawingPanel();
         add(drawingPanel, BorderLayout.CENTER);
 
+        // Main Window Setup
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -124,9 +135,9 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == brushTool) {
-            drawingPanel.setTool("Brush");
+    public void actionPerformed(ActionEvent e) { // menu button clicks event handling
+        if (e.getSource() == brushTool) { // Tools
+            drawingPanel.setTool("Brush"); 
         } else if (e.getSource() == rectangleTool) {
             drawingPanel.setTool("Rectangle");
         } else if (e.getSource() == ovalTool) {
@@ -137,7 +148,7 @@ public class MainWindow extends JFrame implements ActionListener {
             drawingPanel.setTool("Eraser");
         } else if (e.getSource() == tubeTool) {
             drawingPanel.setTool("Tube");
-        } else if (e.getSource() == redColor) {
+        } else if (e.getSource() == redColor) { // Colors
             drawingPanel.setColor(Color.RED);
         } else if (e.getSource() == greenColor) {
             drawingPanel.setColor(Color.GREEN);
@@ -149,7 +160,7 @@ public class MainWindow extends JFrame implements ActionListener {
             drawingPanel.setColor(Color.BLACK);
         } else if (e.getSource() == whiteColor) {
             drawingPanel.setColor(Color.WHITE);
-        } else if (e.getSource() == blackBG) {
+        } else if (e.getSource() == blackBG) { // Background Colors
             drawingPanel.setBackground(Color.BLACK);
         } else if (e.getSource() == blueBG) {
             drawingPanel.setBackground(Color.BLUE);
@@ -165,22 +176,23 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new MainWindow();
+        new MainWindow(); // instantiates MainWindow and runs the code in the constructor
     }
 }
 
-class DrawingPanel extends JPanel {
-    private int prevX, prevY;
+class DrawingPanel extends JPanel { // controls tools and colors
+    private int prevX, prevY; // starting mouse click coordinates
     private boolean dragging;
     private Graphics2D g2d;
-    private String tool = "Brush";
-    private Color color = Color.BLACK;
+    private String tool = "Brush"; // default tool is brush
+    private Color color = Color.BLACK; // default color is black
+
 
     public DrawingPanel() { 
-        setBackground(Color.WHITE); 
+        setBackground(Color.WHITE); // default background is white
 
         addMouseListener(new MouseAdapter() { 
-            public void mousePressed(MouseEvent e) { 
+            public void mousePressed(MouseEvent e) { // mouse clicked event handling
                 prevX = e.getX(); 
                 prevY = e.getY(); 
                 dragging = true; 
@@ -188,14 +200,14 @@ class DrawingPanel extends JPanel {
                 g2d.setColor(color); 
             } 
 
-            public void mouseReleased(MouseEvent e) { 
+            public void mouseReleased(MouseEvent e) { // mouse released event handling
                 dragging = false; 
                 g2d.dispose(); 
             } 
         }); 
 
         addMouseMotionListener(new MouseMotionAdapter() { 
-            public void mouseDragged(MouseEvent e) { 
+            public void mouseDragged(MouseEvent e) {  // mouse clicked and dragged event handling
                 if (dragging) { 
                     int x = e.getX(); 
                     int y = e.getY(); 
@@ -223,11 +235,11 @@ class DrawingPanel extends JPanel {
         });
     }
 
-    public void setTool(String t) {
+    public void setTool(String t) { // sets tool type
         this.tool = t;
     }
 
-    public void setColor(Color c) {
+    public void setColor(Color c) { // sets tool output color
         this.color = c;
         if (g2d != null) {
             g2d.setColor(c);
